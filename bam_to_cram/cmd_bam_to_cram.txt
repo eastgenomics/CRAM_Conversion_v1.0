@@ -1,0 +1,10 @@
+#Convert BAM to CRAM format
+/home/ravi/software/samtools-1.13/bin/samtools view -C -T /media/ravi/Bioinfo/nhs_cram/database/hs37d5.fa NA12878-GM20-02783-FHC-EGG3_markdup.bam -o NA12878-GM20-02783-FHC-EGG3_markdup_bam.cram
+
+#Convert CRAM to BAM format
+/home/ravi/software/samtools-1.13/bin/samtools view -b -T /media/ravi/Bioinfo/nhs_cram/database/hs37d5.fa NA12878-GM20-02783-FHC-EGG3_markdup_bam.cram -o NA12878-GM20-02783-FHC-EGG3_markdup_bam.cram.bam
+
+/home/ravi/software/samtools-1.13/bin/samtools index NA12878-GM20-02783-FHC-EGG3_markdup_bam.cram.bam NA12878-GM20-02783-FHC-EGG3_markdup_bam.cram.bam.bai
+
+#https://deeptools.readthedocs.io/en/2.1.1/content/tools/bamCompare.html
+bamCompare -b1 NA12878-GM20-02783-FHC-EGG3_markdup.bam -b2 NA12878-GM20-02783-FHC-EGG3_markdup_bam.cram.bam -o log2ratio.bw
