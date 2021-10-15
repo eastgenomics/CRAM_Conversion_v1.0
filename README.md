@@ -1,6 +1,6 @@
 <!-- dx-header -->
 
-# opencga_upload_vcf (DNAnexus Platform App)
+# CRAM Conversion (DNAnexus Platform App)
 
 ## What does this app do?
 
