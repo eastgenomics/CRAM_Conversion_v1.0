@@ -1,0 +1,8 @@
+#Convert fastq to CRAM format
+
+java -jar /home/ravi/software/picard/build/libs/picard.jar FastqToSam F1=NA12878-GM20-02783-FHC-EGG3_S24_L001_R1_001.fastq.gz F2=NA12878-GM20-02783-FHC-EGG3_S24_L001_R2_001.fastq.gz O=NA12878-GM20-02783-FHC-EGG3_S24_L001_unaligned.bam SM=NA12878
+
+/home/ravi/software/samtools-1.13/bin/samtools view -C -T /media/ravi/Bioinfo/nhs_cram/database/hs37d5.fa NA12878-GM20-02783-FHC-EGG3_S24_L001_unaligned.bam -o NA12878-GM20-02783-FHC-EGG3_S24_L001_unaligned.bam.cram
+
+# back to fastq
+/home/ravi/software/samtools-1.13/bin/samtools fastq NA12878-GM20-02783-FHC-EGG3_S24_L001_unaligned.bam.cram -1 NA12878-GM20-02783-FHC-EGG3_S24_L001_unaligned.bam.cram.R1.fastq.gz -2 NA12878-GM20-02783-FHC-EGG3_S24_L001_unaligned.bam.cram.R2.fastq.gz
